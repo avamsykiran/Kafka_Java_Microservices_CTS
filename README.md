@@ -221,4 +221,27 @@ Kafak
                 messages and consuemrs, to remeber, what is the 
                 las message consumed by a consumer in  a consumer group.
 
-                
+
+    Kafka API
+    =================================================================================
+
+        Producer API        api for a producer to interact with Kafka
+        Consumer API        api for a consumer to interact with Kafka
+        Stream API          api allows the processing of the vents received on kafka,
+        Connector API       api can interact with an underlying perssitant api
+                            to act like an auotmatic producer or consumer.
+
+    Kafka CLI
+    =================================================================================
+
+        bunch of .bat/.sh files are available as kafka cli tools,
+
+        kafka-topics -zookeeper localhost:2181 -topic SAVE_TRAN -create -partitions 3 -replication-factor 1
+
+        kafka-topics -zookeeper localhost:2181 -list
+            
+        kafka-topics -zookeeper localhost:2181 -describe --topic SAVE_TRAN
+
+        kafka-topics -zookeeper localhost:2181 -topic SAVE_TRAN --delete
+
+        Kafka-console-producer  -broker-list localhost:9092 -topic DEL_TRAN

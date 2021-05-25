@@ -240,8 +240,18 @@ Kafak
 
         kafka-topics -zookeeper localhost:2181 -list
             
-        kafka-topics -zookeeper localhost:2181 -describe --topic SAVE_TRAN
+        kafka-topics -zookeeper localhost:2181 -describe --topic topicName
 
-        kafka-topics -zookeeper localhost:2181 -topic SAVE_TRAN --delete
+        kafka-topics -zookeeper localhost:2181 -topic topicName --delete
 
-        Kafka-console-producer  -broker-list localhost:9092 -topic DEL_TRAN
+        Kafka-console-producer  -broker-list localhost:9092 -topic topicName
+
+        Kafka-console-producer  -broker-list localhost:9092 -topic topicName -property parse.key=true -property key.separator=:
+
+        Kafka-console-consumer  -bootstrap-server localhost:9092 -topic topicName
+
+        Kafka-console-consumer  -bootstrap-server localhost:9092 -topic topicName --from-beginning
+
+        Kafka-console-consumer  -bootstrap-server localhost:9092 -topic topicName --from-beginning -property print.key=true -property key.separator=:
+
+        Kafka-console-consumer  -bootstrap-server localhost:9092 -topic topicName -group groupName

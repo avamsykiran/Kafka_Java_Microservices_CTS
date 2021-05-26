@@ -255,3 +255,9 @@ Kafak
         Kafka-console-consumer  -bootstrap-server localhost:9092 -topic topicName --from-beginning -property print.key=true -property key.separator=:
 
         Kafka-console-consumer  -bootstrap-server localhost:9092 -topic topicName -group groupName
+
+
+    Working with Kafka on Java
+    ===========================================================================
+
+        

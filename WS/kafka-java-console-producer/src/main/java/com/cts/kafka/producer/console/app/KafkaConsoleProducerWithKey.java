@@ -8,7 +8,7 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
-public class KafkaConsoleProducer {
+public class KafkaConsoleProducerWithKey {
 
 	public static void main(String[] args) {
 
@@ -26,12 +26,15 @@ public class KafkaConsoleProducer {
 		
 		boolean shallContinue=true;
 		
-		while(shallContinue) {
-			String key = "TopicA";
+		String topic = "TopicA";
+		
+		while(shallContinue) {	
+			System.out.print("Key: ");
+			String key = scan.nextLine();
 			System.out.print("Message: ");
 			String value = scan.nextLine();
 			
-			ProducerRecord<String,String> msg = new ProducerRecord<String, String>(key, value);
+			ProducerRecord<String,String> msg = new ProducerRecord<String, String>(topic,key,value);
 			kafkaProducer.send(msg);
 			kafkaProducer.flush();
 			

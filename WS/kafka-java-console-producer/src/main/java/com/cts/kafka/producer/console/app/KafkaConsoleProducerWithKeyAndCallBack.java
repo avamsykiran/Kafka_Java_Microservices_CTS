@@ -8,7 +8,7 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
-public class KafkaConsoleProducer {
+public class KafkaConsoleProducerWithKeyAndCallBack {
 
 	public static void main(String[] args) {
 
@@ -26,13 +26,23 @@ public class KafkaConsoleProducer {
 		
 		boolean shallContinue=true;
 		
-		while(shallContinue) {
-			String key = "TopicA";
+		String topic = "TopicA";
+		
+		while(shallContinue) {	
+			System.out.print("Key: ");
+			String key = scan.nextLine();
 			System.out.print("Message: ");
 			String value = scan.nextLine();
 			
-			ProducerRecord<String,String> msg = new ProducerRecord<String, String>(key, value);
-			kafkaProducer.send(msg);
+			ProducerRecord<String,String> msg = new ProducerRecord<String, String>(topic,key,value);
+			kafkaProducer.send(msg,(resultantRecord,exception)->{
+				if(exception!=null) {
+					System.out.println("Unble to send the message:: "+exception.getMessage());
+				}else {
+					System.out.println("Message is send to " 
+				+ resultantRecord.partition() + " by " + resultantRecord.timestamp());
+				}
+			});
 			kafkaProducer.flush();
 			
 			System.out.print("Continue(yes/no): ");

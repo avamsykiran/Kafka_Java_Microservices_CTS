@@ -8,6 +8,10 @@
 	<name>KafkaJavaConsoleProducer</name>
 	<description>a sample producer writtenin njava for kfaka messaging system</description>
 
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
 		<dependency>

@@ -256,7 +256,6 @@ Kafak
 
         Kafka-console-consumer  -bootstrap-server localhost:9092 -topic topicName -group groupName
 
-
     Working with Kafka on Java
     ===========================================================================
 

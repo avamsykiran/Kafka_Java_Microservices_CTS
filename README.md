@@ -263,3 +263,31 @@ Kafak
     Spring Kafka
     ============================================================================
         refer to ./WS foldwer
+
+    Message Stream Processing
+    ============================================================================
+
+        Stream  ---> a flow (of messages)
+
+            Intermideate Streams
+
+                recevie streams of messages
+                        ------ process it --------------
+                                send a new stream of modified message
+
+            Terminal Streams
+
+                recevie streams of messages --------- and consumed.!
+
+            Stream Operations
+                map             converting one mesg into another
+                reduce          reduces the entire stream into one message
+                filter          apply a predicate on the src stream
+                                and only those mesgs that pass for the predicate
+                                are allowed in the dest stream.
+                foreach         action executed on each msg
+                flatMap         a container of containers into a flat container.
+
+    Spring Kafka Streams
+    ============================================================================
+        refer to ./WS foldwer
